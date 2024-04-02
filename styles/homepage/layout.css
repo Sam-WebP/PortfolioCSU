@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    background-color: #000000; /* Base color */
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Use fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Cover the full viewport width */
+    height: 100vh; /* Cover the full viewport height */
+    z-index: -1; /* Ensure it's behind all other content */
+    background-image: 
+        linear-gradient(to bottom, transparent, #000000), /* Fade to black effect */
+        linear-gradient(to right, rgba(146, 16, 245, 0.252) 1px, transparent 1px), /* Vertical lines */
+        linear-gradient(to bottom, rgba(136, 0, 255, 0.206) 1px, transparent 1px); /* Horizontal lines */
+    background-size: 100% 100%, 14px 24px, 14px 24px;
+    background-repeat: no-repeat, repeat, repeat;
+    pointer-events: none; /* Prevents the pseudo-element from capturing mouse events */
+}
+
+.page-wrapper {
+    max-width: 1200px; /* Your desired max width */
+    margin: 0 auto; /* Center in the viewport */
+    position: relative; /* Establishes a positioning context for absolutely positioned pseudo-elements */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+    overflow: visible; /* Change this to ensure the blob is visible */
+}
+
+.page-wrapper::before {
+    content: ""; /* Necessary for the pseudo-element to be generated */
+    position: absolute; /* Position relative to the .page-wrapper */
+    top: 1%;
+    right: 100%; /* Adjust to ensure part of the blob is visible */
+    width: 400px; /* Size of the blob */
+    height: 400px; /* Size of the blob */
+    background-image: linear-gradient(315deg, #03a9f4, #ff0058) /* Faint, washed-out gradient */
+    border-radius: 50%; /* Creates a circular shape */
+    z-index: -1; /* Adjust the z-index if needed to ensure visibility */
+}
+
+
+
+/* Outer div styles */
+.relative-container {
+    position: relative;
+    height: 100%; /* Full height of the parent element */
+    width: 100%; /* Full width of the parent element */
+    background-color: #334155; /* Approximate color for bg-slate-950 */
+}
+
+/* Inner div styles for the grid overlay effect */
+.grid-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-image: linear-gradient(to right, #4f4f4f2e 1px, transparent 1px), linear-gradient(to bottom, #4f4f4f2e 1px, transparent 1px);
+    background-size: 14px 24px;
+}
+
+.headshot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-right: 20px; /* Adjust based on your layout and image size */
+    margin: 15px;
+}
+
+.headshot {
+    width: 3rem; /* Adjust based on your image's dimensions */
+    position: absolute;
+    top: -10px; /* Moves the image up, outside the div */
+    right: -20px; /* Adjust based on how much you want the image to overlap */
+    border-radius: 100%; /* Optional: creates a circular image */
+    z-index: 2; /* Ensures the image overlaps adjacent elements if necessary */
+}
+
+.intro-text {
+    
+    padding: 20px; /* Adds space around the text and image */
+    position: relative;
+    z-index: 1; /* Ensures the text background is below the image */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    
+    
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-item {
+    position: relative;
+    display: block;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.hover-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Transparent by default */
+    transition: background-color 0.15s ease-in-out;
+    border-radius: 12px;
+}
+
+.grid-item:hover .hover-background {
+    background-color: rgba(156, 163, 175, 0.8); /* Change this to your desired hover background color */
+}
+
+.card {
+    border-radius: 16px;
+    background-color: black;
+    padding: 16px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.grid-item:hover .card {
+    border-color: rgba(156, 163, 175, 0.5); /* Adjust hover border color */
+}
+
+.card-title {
+    color: #E4E4E7; /* Light grey */
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+.card-description {
+    color: #9CA3AF; /* Darker grey */
+    margin-top: 32px;
+    line-height: 1.5;
+    font-size: 0.875rem; /* 14px */
+}

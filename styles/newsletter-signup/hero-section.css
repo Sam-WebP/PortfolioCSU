@@ -1,0 +1,53 @@
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px; /* Adjust the space between text and image */
+    padding: 40px; /* Add some padding around the content */
+    padding-top: 5em;
+}
+
+.text-content h1 {
+    font-size: 72px; /* Big heading */
+    margin: 0;
+}
+
+.subheading {
+    font-size: 20px; /* Subheading */
+    color: #b0aae2; /* Subtle color for the subheading */
+    margin: 10px 0;
+}
+
+.extra-space {
+    height: 500px;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 900px;
+    overflow: hidden; /* This ensures that all content is clipped to the container's bounds */
+    border-radius: 30px; /* Example border-radius, adjust or remove as necessary */
+    border-top: 1px solid rgba(255, 255, 255, 0.507);
+    box-shadow: 0 -10px 30px rgba(54, 0, 83, 0.626);
+
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensures the image doesn't add any extra space at the bottom */
+}
+
+.hero-image-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%; /* Adjust this value as needed for the gradient height */
+    background: linear-gradient(to top, rgb(0, 0, 0), transparent); /* Gradient from solid color to transparent */
+    z-index: 2; /* Above the image but below any other content */
+}
+
