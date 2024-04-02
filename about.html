@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Skills - Condensed</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="../styles/homepage/layout.css"> -->
+        <link rel="stylesheet" href="./styles/components/nav-bar.css">
+        <!-- Document description: Condensed Web Skills Page. Inspired by Healthcare Drone Company Portfolio - Main Page. Created by Samuel Moran, 21/03/2024. -->
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+        
+            body {
+                font-family: 'Inter';
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                justify-items: center;
+                position: relative;
+                min-height: 100vh;
+                background-color: #2b0202;
+                background-image: linear-gradient(60deg, #540d0d 30%, #ff8c00 50%, #540d0d 70%);
+                overflow-x: hidden;
+                padding: 10px;
+            }
+        
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                background-image: 
+                    linear-gradient(to bottom left, transparent, #3a0c0c),
+                    linear-gradient(to right, #3a0c0c 1px, transparent 1px),
+                    linear-gradient(to bottom, #3a0c0c 1px, transparent 1px);
+                background-size: 100% 100%, 5px 15px, 14px 24px;
+                background-repeat: no-repeat, repeat, repeat;
+                pointer-events: none;
+                padding: 10px;
+            }
+        
+            .page-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                --bento-border: 1px solid #ff8c002c;
+                --bento-background-color: #540d0d2f;
+                --bento-border-radius: 20px;
+            }
+        
+            .intro-text {
+                display: flex;
+                flex-direction: column;
+                max-width: 900px;
+                margin: 3rem;
+            }
+        
+            .intro-text h1 {
+                font-size: 3rem;
+                text-align: center;
+                color: white;
+            }
+        
+            .skill-container {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                max-width: 1000px;
+                margin: 2rem 0;
+            }
+        
+            .skill-title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .skill-title h2 {
+                font-size: 2rem;
+                color: white;
+            }
+        
+            .skill {
+                display: flex;
+                flex-direction: column;
+                border: var(--bento-border);
+                border-radius: var(--bento-border-radius);
+                background-color: var(--bento-background-color);
+                transition: background-color 1s ease;
+                position: relative;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                width: 100%;
+                max-width: 700px;
+                margin-top: 3rem;
+            }
+        
+            .skill h3 {
+                font-size: 1.5rem;
+                color: white;
+                text-align: center;
+                margin-top: 1rem;
+            }
+        
+            .skill p {
+                font-size: 1rem;
+                color: white;
+                text-align: center;
+                margin: 1rem;
+            }
+
+            @media only screen and (max-width: 768px) {
+                .skill-container {
+                    flex-direction: column;
+                }
+            }
+        
+            @media only screen and (max-width: 480px) {
+                .intro-text,
+                .skill-container {
+                    width: 95%;
+                    margin: 1rem 0;
+                }
+        
+                .skill-title h2 {
+                    font-size: 1.5rem;
+                }
+        
+                .skill h3 {
+                    font-size: 1.2rem;
+                }
+        
+                .skill p {
+                    font-size: 1rem;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        
+        <div class="page-wrapper">
+            <nav id="navbar">
+                <div class="hamburger">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
+                <div class="nav-logo">Logo</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="web-skills.html">Web Skills</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                </ul>
+                <div class="nav-phone">0412 988 339</div>
+            </nav>
+            
+
+            <div class="skill-container">
+                <div class="skill">
+                    <h3>About</h3>
+                    <p>I'm a computer science undergrad at CSU. As a tech enthusiast, I thrive on exploring the latest in tech and open source projects, comparing them with industry competitors. I'm passionate about learning new technologies, crafting innovative projects, and collaborating with fellow developers. My academic and personal pursuits intertwine, driving me to explore how theoretical knowledge can be applied to real-world tech challenges, always with a keen eye on collaborative innovation and shared knowledge.</p>
+                </div>
+            </div>
+        </div>
+        <script src="./scripts/hamburger.js"></script>
+    </body>
+</html>

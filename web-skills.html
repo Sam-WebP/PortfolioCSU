@@ -21,12 +21,12 @@
                 font-family: 'Inter';
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: start;
                 justify-items: center;
                 position: relative;
                 min-height: 100vh;
                 background-color: #000000;
-                background-image: linear-gradient(45deg, #0d011a 20%, #2a2a43 50%, #01011a 80%);
+                background-image: linear-gradient(60deg, #010d22 30%, #5d6067 50%, #010d22 70%);
                 overflow-x: hidden;
                 padding: 10px;
             }
@@ -40,10 +40,10 @@
                 height: 100vh;
                 z-index: -1;
                 background-image: 
-                    linear-gradient(to bottom left, transparent, #13011a),
-                    linear-gradient(to right, #01011a 1px, transparent 1px),
-                    linear-gradient(to bottom, #01011a 1px, transparent 1px);
-                background-size: 100% 100%, 14px 24px, 14px 24px;
+                    linear-gradient(to bottom left, transparent, #010d22),
+                    linear-gradient(to right, #010d22 1px, transparent 1px),
+                    linear-gradient(to bottom, #010d22 1px, transparent 1px);
+                background-size: 100% 100%, 5px 15px, 14px 24px;
                 background-repeat: no-repeat, repeat, repeat;
                 pointer-events: none;
                 padding: 10px;
@@ -53,8 +53,8 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                --bento-border: 1px solid #7979ff1a;
-                --bento-background-color: #05051653;
+                --bento-border: 1px solid #5d60672c;
+                --bento-background-color: #010d222f;
                 --bento-border-radius: 20px;
             }
         
@@ -101,6 +101,8 @@
                 background-color: var(--bento-background-color);
                 transition: background-color 1s ease;
                 position: relative;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }
         
             .skill h3 {
