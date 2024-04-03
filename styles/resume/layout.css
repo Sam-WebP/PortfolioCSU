@@ -8,20 +8,14 @@ body {
     font-family: 'Inter';
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-content: start;
+    justify-content: start;
+    justify-items: center;
     position: relative;
     min-height: 100vh;
     background-color: #000000;
-    background-image: linear-gradient(45deg, #031a01 10%, #1c302a 50%, #031a01 80%);
+    background-image: linear-gradient(-60deg, #012217 30%, #5e675d 50%, #012217 70%);
     overflow-x: hidden;
     padding: 10px;
-}
-
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 body::before {
@@ -33,12 +27,30 @@ body::before {
     height: 100vh;
     z-index: -1;
     background-image: 
-        linear-gradient(to bottom left, transparent, #01011a),
-        linear-gradient(to right, #031a01 1px, transparent 1px),
-        linear-gradient(to bottom, #031a01 1px, transparent 1px);
-    background-size: 100% 100%, 14px 24px, 14px 24px;
+        linear-gradient(to bottom left, transparent, #012217),
+        linear-gradient(to right, #012217 1px, transparent 1px),
+        linear-gradient(to bottom, #012217 1px, transparent 1px);
+    background-size: 100% 100%, 5px 15px, 14px 24px;
     background-repeat: no-repeat, repeat, repeat;
     pointer-events: none;
+    padding: 10px;
+}
+
+/* Inner div styles for the grid overlay effect */
+.grid-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-image: linear-gradient(to right, #0a2201 1px, transparent 1px), linear-gradient(to bottom, #0a2201 1px, transparent 1px);
+    background-size: 14px 24px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .text-content h1 {

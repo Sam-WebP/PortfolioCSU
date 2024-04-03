@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    justify-items: center;
+    position: relative;
+    min-height: 100vh;
+    background-color: #2b0202;
+    background-image: linear-gradient(60deg, #540d0d 30%, #ff8c00 50%, #540d0d 70%);
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: 
+        linear-gradient(to bottom left, transparent, #3a0c0c),
+        linear-gradient(to right, #3a0c0c 1px, transparent 1px),
+        linear-gradient(to bottom, #3a0c0c 1px, transparent 1px);
+    background-size: 100% 100%, 5px 15px, 14px 24px;
+    background-repeat: no-repeat, repeat, repeat;
+    pointer-events: none;
+    padding: 10px;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --bento-border: 1px solid #ff8c002c;
+    --bento-background-color: #540d0d2f;
+    --bento-border-radius: 20px;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 3rem;
+}
+
+.intro-text h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem 0;
+}
+
+.skill-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-title h2 {
+    font-size: 2rem;
+    color: white;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    border: var(--bento-border);
+    border-radius: var(--bento-border-radius);
+    background-color: var(--bento-background-color);
+    transition: background-color 1s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 700px;
+    margin-top: 3rem;
+}
+
+.skill h3 {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.skill p {
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    margin: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .skill-container {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .intro-text,
+    .skill-container {
+        width: 95%;
+        margin: 1rem 0;
+    }
+
+    .skill-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .skill h3 {
+        font-size: 1.2rem;
+    }
+
+    .skill p {
+        font-size: 1rem;
+    }
+}
+
+/* Modal Popup Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-background-color);
+}
+
+.modal-content {
+    background-color: var(--modal-content-background-color);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.info-message {
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.close {
+    color: #1b1b1b;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes animate {
+    0%, 100% { transform: translateY(10px); }
+    50% { transform: translateY(-10px); }
+}
+
+.modal-content {
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #fefefeb3; /* Background color for modal content */
+    backdrop-filter: blur(10px);
+    font-weight: 200; /* Font weight for modal content */
+}
+
+.modal-content h1 {
+    color: rgb(163, 0, 0);
+    text-decoration: rgb(0, 0, 0) underline;
+}
+
+.modal-content h2 {
+    color: blue;
+    text-decoration: rgb(0, 0, 0) wavy underline;
+}
+
+.modal-content img {
+    max-width: 100px;
+}
+
+.navigation a:hover {
+    background-color: #ddd; /* Different background color for navigation links on hover */
+    color: black; /* Different text color */
+}
+
+.aligned-left, .aligned-center, .aligned-right {
+    font-style: oblique; /* Different font style */
+    font-weight: 400; /* Different font weight */
+}
+
+.aligned-center {
+    font-size: 24px; /* Different font size */
+}
+
+.different-typefaces {
+    font-family: 'Roboto', sans-serif;
+    list-style-type: upper-roman; /* This ensures the list is in Roman numerals */
+}
+
+.different-typefaces li:nth-child(1) {
+    font-weight: 200; /* Typeface 200 for the first item */
+}
+
+.different-typefaces li:nth-child(2) {
+    font-weight: 400; /* Typeface 400 for the second item */
+}
+
+.different-typefaces li:nth-child(3) {
+    font-weight: 600; /* Typeface 600 for the third item */
+}
+
+.different-typefaces li:nth-child(4) {
+    font-weight: 800; /* Typeface 800 for the fourth item */
+}
+
+/* ID selector for modal */
+#myModal {
+    display: none; /* Initially hidden modal */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.navigation {
+    background-color: #333; /* Background color for navigation */
+    overflow: hidden;
+}
+
+.navigation a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.aligned-right {
+    text-align: right;
+}
+
+.aligned-center {
+    text-align: center;
+}
+
+.aligned-left {
+    text-align: left;
+}

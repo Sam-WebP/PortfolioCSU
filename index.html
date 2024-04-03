@@ -7,6 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/navbar.css">
+    <!-- Internal style sheet to meet the requirements -->
+    <style> 
+        .modal-content {
+            padding: 3rem;
+        }
+    </style>
 </head>
 <body>
     <nav id="navbar">
@@ -27,12 +33,12 @@
         <section id="hero-section">
             <div class="intro-text">
                 <h1>
-                    Hey&#128075, my name is <span class="orange-gradient-text">Samuel Moran
+                    Hey&#128075;, my name is <span class="orange-gradient-text">Samuel Moran
                         <span class="headshot-container" id="myBtn">
                             <img src="./images/homepage/headshot-white.png" alt="Samuel Moran" class="headshot">
                         </span>
                     </span>
-                    and I'm a <span class="green-gradient-text">full-stack developer</span>&#128187
+                    and I'm a <span class="green-gradient-text">full-stack developer</span>&#128187;
                 </h1>
                 
                 <blockquote class="subheading">
@@ -41,15 +47,6 @@
                 </blockquote>
             </div>
         </section>
-
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>This is a modal pop-up. Add any content you want here.</p>
-            </div>
-        </div>
 
         <!-- Glowing Cards -->
         <section class="glowing-cards">
@@ -78,6 +75,56 @@
                 </div>
             </div>
         </section>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="color: rgb(0, 0, 0); font-style: italic;">
+                <span class="close">&times;</span>
+                <p class="info-message">This modal pop-up is designed to include all HTML and CSS requirements of ITC293 A2.</p>
+                <!-- Headings -->
+                <h1>Heading 1 text colour red</h1>
+                <h2>Heading 2 text colour blue</h2>
+                <br>
+
+                <!-- Paragraphs -->
+                <p class="aligned-left">This paragraph is aligned to the left and in text style oblique.</p>
+                <p class="aligned-center">This paragraph is centered and in italic.</p>
+                <p class="aligned-right">This paragraph is aligned to the right and in text style oblique.</p>
+
+                <!-- Lists -->
+                <p>Ordered list to Roman numerals:</p>
+                <ol type="I" class="different-typefaces">
+                    <li>Typeface 200</li>
+                    <li>Typeface 400</li>
+                    <li>Typeface 600</li>
+                    <li>Typeface 800</li>
+                </ol>
+                <br>
+                <p>Unordered list to squares:</p>
+                <ul style="list-style-type: square;">
+                    <li>First bullet</li>
+                    <li>Second bullet</li>
+                    <li>Third bullet</li>
+                </ul>
+                <br>
+                <!-- Images -->
+                <p>Sample image below of the GitHub logo:</p>
+                <img src="./images/GitHubLogo.png" alt="Sample Image">
+                <br>
+                <!-- Internal Link -->
+                <a href="#myModal">Open Modal</a>
+
+                <!-- External Link -->
+                <a href="https://www.example.com" target="_blank">Visit Example</a>
+
+                <!-- Email and Phone Links -->
+                <a href="mailto:samuel@example.com">Send Email</a>
+                <a href="tel:+1234567890">Call Us</a>
+
+                <!-- Character Reference -->
+                <p>The copyright symbol: &copy;</p>
+            </div>
+        </div>
 
     <script src="./scripts/modal.js"></script>
     <script src="./scripts/hamburger.js"></script> 

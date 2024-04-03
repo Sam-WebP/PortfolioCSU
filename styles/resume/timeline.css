@@ -8,7 +8,7 @@
 
 body {
   --color: rgba(30, 30, 30);
-  --bgColor: rgba(0, 0, 0, 0.261);
+  --bgColor: #010d222f;
   --card-top-color: rgb(255, 255, 255);
   --card-top-color-text: rgb(0, 0, 0);
   --card-border-width: 1px;
@@ -121,6 +121,8 @@ body {
   position: relative;
   padding-inline: var(--card-padding-inline);
   color: var(--text-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 #timeline ul li .title {
   overflow: hidden;

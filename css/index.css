@@ -1,3 +1,22 @@
+/* CSS Variables for easy theme management */
+:root {
+    --base-color: #000000;
+    --highlight-color-1: #ffbc00; /* Orange gradient start */
+    --highlight-color-2: #ff0058; /* Orange gradient end */
+    --highlight-color-3: #03a9f4; /* Blue gradient start */ 
+    --highlight-color-4: #4fff03a4; /* Green gradient start */
+    --highlight-color-5: #00d0ff; /* Green gradient end */
+    --text-color: #ffffff;
+    --subtext-color: #9CA3AF; /* Darker grey */
+    --background-gradient-start: transparent;
+    --background-gradient-end: var(--base-color);
+    --modal-background-color: rgba(0,0,0,0.4);
+    --modal-content-background-color: #fefefe;
+    --card-background-color: rgba(59, 56, 116, 0.422);
+    --card-hover-background: #ffcf4d;
+    --font-family: 'Inter', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,43 +24,42 @@
 }
 
 body {
-    font-family: 'Inter';
+    font-family: var(--font-family);
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     position: relative;
     min-height: 100vh;
-    background-color: #000000; /* Base color */
+    background-color: var(--base-color);
     overflow-x: hidden;
 }
 
 body::before {
     content: "";
-    position: fixed; /* Use fixed to cover the entire viewport */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Cover the full viewport width */
-    height: 100vh; /* Cover the full viewport height */
-    z-index: -1; /* Ensure it's behind all other content */
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
     background-image: 
-        linear-gradient(to bottom, transparent, #000000), /* Fade to black effect */
-        linear-gradient(to right, rgba(146, 16, 245, 0.252) 1px, transparent 1px), /* Vertical lines */
-        linear-gradient(to bottom, rgba(136, 0, 255, 0.206) 1px, transparent 1px); /* Horizontal lines */
+        linear-gradient(to bottom, var(--background-gradient-start), var(--background-gradient-end)),
+        linear-gradient(to right, rgba(146, 16, 245, 0.252) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(136, 0, 255, 0.206) 1px, transparent 1px);
     background-size: 100% 100%, 14px 24px, 14px 24px;
     background-repeat: no-repeat, repeat, repeat;
-    pointer-events: none; /* Prevents the pseudo-element from capturing mouse events */
+    pointer-events: none;
 }
 
-/* Outer div styles */
+/* Grid Overlay */
 .relative-container {
     position: relative;
-    height: 100%; /* Full height of the parent element */
-    width: 100%; /* Full width of the parent element */
-    background-color: #334155; /* Approximate color for bg-slate-950 */
+    height: 100%;
+    width: 100%;
+    background-color: #334155;
 }
 
-/* Inner div styles for the grid overlay effect */
 .grid-overlay {
     position: absolute;
     bottom: 0;
@@ -52,138 +70,7 @@ body::before {
     background-size: 14px 24px;
 }
 
-.headshot-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding-right: 20px; /* Adjust based on your layout and image size */
-    margin: 15px;
-}
-
-.headshot {
-    width: 3rem; /* Adjust based on your image's dimensions */
-    position: absolute;
-    top: -10px; /* Moves the image up, outside the div */
-    right: -20px; /* Adjust based on how much you want the image to overlap */
-    border-radius: 100%; /* Optional: creates a circular image */
-    z-index: 2; /* Ensures the image overlaps adjacent elements if necessary */
-}
-
-.intro-text {
-    
-    padding: 20px; /* Adds space around the text and image */
-    position: relative;
-    z-index: 1; /* Ensures the text background is below the image */
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    
-    
-}
-
-@media (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.grid-item {
-    position: relative;
-    display: block;
-    padding: 8px;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-}
-
-.hover-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0); /* Transparent by default */
-    transition: background-color 0.15s ease-in-out;
-    border-radius: 12px;
-}
-
-.grid-item:hover .hover-background {
-    background-color: rgba(156, 163, 175, 0.8); /* Change this to your desired hover background color */
-}
-
-.card {
-    border-radius: 16px;
-    background-color: black;
-    padding: 16px;
-    overflow: hidden;
-    border: 1px solid transparent;
-    transition: border-color 0.15s ease-in-out;
-}
-
-.grid-item:hover .card {
-    border-color: rgba(156, 163, 175, 0.5); /* Adjust hover border color */
-}
-
-.card-title {
-    color: #E4E4E7; /* Light grey */
-    font-weight: bold;
-    margin-top: 16px;
-}
-
-.card-description {
-    color: #9CA3AF; /* Darker grey */
-    margin-top: 32px;
-    line-height: 1.5;
-    font-size: 0.875rem; /* 14px */
-}
-
-/*HERO SECTION CSS*/
-
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 20px; /* Adjust the space between text and image */
-    padding: 40px; /* Add some padding around the content */
-    padding-top: 5em;
-}
-
-.text-content h1 {
-    font-size: 72px; /* Big heading */
-    margin: 0;
-}
-
-.orange-gradient-text {
-    position: relative; /* Establish a positioning context for pseudo-elements */
-    display: inline-flex;
-    background-image: linear-gradient(to top, #ffbc00, #ff0058);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; /* Make the text color transparent to see the gradient */
-    z-index: 2; /* Ensure the text is above the pseudo-elements */
-}
-
-.green-gradient-text {
-    position: relative; /* Establish a positioning context for pseudo-elements */
-    display: inline-flex;
-    background-image: linear-gradient(to bottom, #00d0ff, #4dff03);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; /* Make the text color transparent to see the gradient */
-    z-index: 2; /* Ensure the text is above the pseudo-elements */
-}
-
+/* Hero Section and Headshot */
 #hero-section {
     display: flex;
     justify-content: center;
@@ -194,301 +81,396 @@ body::before {
     display: flex;
     flex-direction: column;
     max-width: 900px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .intro-text h1 {
-    color: white;
+    color: var(--text-color);
     font-size: 3rem;
     text-align: center;
 }
 
 .subheading {
-    font-size: 20px; /* Subheading */
+    font-size: 20px;
     font-style: italic;
-    color: #f00a61; /* Subtle color for the subheading */
+    color: var(--highlight-color-2);
     margin: 10px 0;
     text-align: center;
 }
 
-.hero-image-container {
+.headshot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 900px;
-    overflow: hidden; /* This ensures that all content is clipped to the container's bounds */
-    border-radius: 30px; /* Example border-radius, adjust or remove as necessary */
-    border-top: 1px solid rgba(255, 255, 255, 0.507);
-    box-shadow: 0 -10px 30px rgba(54, 0, 83, 0.626);
-
+    padding-right: 20px;
+    margin: 15px;
 }
 
-.hero-image-container img {
-    width: 100%;
-    height: auto;
-    display: block; /* Ensures the image doesn't add any extra space at the bottom */
-}
-
-.hero-image-container::after {
-    content: "";
+.headshot {
+    width: 3rem;
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 50%; /* Adjust this value as needed for the gradient height */
-    background: linear-gradient(to top, rgb(0, 0, 0), transparent); /* Gradient from solid color to transparent */
-    z-index: 2; /* Above the image but below any other content */
+    top: -10px;
+    right: -20px;
+    border-radius: 100%;
+    z-index: 2;
+}
+
+/* Text Styling with Gradients */
+.orange-gradient-text, .green-gradient-text {
+    position: relative;
+    display: inline-flex;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 2;
+}
+
+.orange-gradient-text {
+    background-image: linear-gradient(to top, var(--highlight-color-1), var(--highlight-color-2));
+}
+
+.green-gradient-text {
+    background-image: linear-gradient(to bottom, var(--highlight-color-4), var(--highlight-color-5));
 }
 
 /* GLOWING CARDS CSS */
 
-.glowing-cards
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 40px 0;
+.glowing-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
 }
 
-.glowing-cards .box
-{
-  position: relative;
-  width: 320px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 40px 30px;
-  transition: 0.5s;
+.glowing-cards .box {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 30px;
+    transition: 0.5s;
 }
 
-.glowing-cards .box::before
-{
-  content:' ';
-  position: absolute;
-  top: 0;
-  left: 50px;
-  width: 50%;
-  height: 100%;
-  text-decoration: none;
-  background: #fff;
-  border-radius: 8px;
-  transform: skewX(15deg);
-  transition: 0.5s;
+.glowing-cards .box::before {
+    content:' ';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
 }
 
-.glowing-cards .box::after
-{
-  content:'';
-  position: absolute;
-  top: 0;
-  left: 50;
-  width: 50%;
-  height: 100%;
-  background: #fff;
-  border-radius: 8px;
-  transform: skewX(15deg);
-  transition: 0.5s;
-  filter: blur(100px);
+.glowing-cards .box::after {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+    filter: blur(100px);
 }
 
 .glowing-cards .box:hover:before,
-.glowing-cards .box:hover:after
-{
-  transform: skewX(0deg);
-  left: 20px;
-  width: calc(100% - 90px);
+.glowing-cards .box:hover:after {
+    transform: skewX(0deg);
+    left: 20px;
+    width: calc(100% - 90px);
   
 }
 
 .glowing-cards .box:nth-child(1):before,
-.glowing-cards .box:nth-child(1):after
-{
-  background: linear-gradient(315deg, #ffbc00, #ff0058)
+.glowing-cards .box:nth-child(1):after {
+    background: linear-gradient(315deg, var(--highlight-color-1), var(--highlight-color-2));
 }
 
 .glowing-cards .box:nth-child(2):before,
-.glowing-cards .box:nth-child(2):after
-{
-  background: linear-gradient(315deg, #03a9f4, #ff0058)
+.glowing-cards .box:nth-child(2):after {
+    background: linear-gradient(315deg, var(--highlight-color-3), var(--highlight-color-2));
 }
 
 .glowing-cards .box:nth-child(3):before,
-.glowing-cards .box:nth-child(3):after
-{
-  background: linear-gradient(315deg, #4fff03a4, #00d0ff)
+.glowing-cards .box:nth-child(3):after {
+    background: linear-gradient(315deg, var(--highlight-color-4), var(--highlight-color-5));
 }
 
-.glowing-cards .box span
-{
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
-  pointer-events: none;
+.glowing-cards .box span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    pointer-events: none;
 }
 
-.glowing-cards .box span::before
-{
-  content:'';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.381);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: 0.1s;  
-  animation: animate 2s ease-in-out infinite;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+.glowing-cards .box span::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.381);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.1s;  
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08)
 }
 
-.glowing-cards .box:hover span::before
-{
-  top: -50px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  opacity: 1;
+.glowing-cards .box:hover span::before {
+    top: -50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
 }
 
-.glowing-cards .box span::after
-{
-  content:'';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: 0.5s;
-  animation: animate 2s ease-in-out infinite;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  animation-delay: -1s;
+.glowing-cards .box span::after {
+    content:'';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    animation-delay: -1s;
 }
 
-.glowing-cards .box:hover span:after
-{
-  bottom: -50px;
-  right: 50px;
-  width: 100px;
-  height: 100px;
-  opacity: 1;
+.glowing-cards .box:hover span:after {
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
 }
 
-@keyframes animate
-{
-  0%, 100%
-  {
-    transform: translateY(10px);
-  }
-  
-  50%
-  {
-    transform: translate(-10px);
-  }
+@keyframes animate {
+    0%, 100%
+    {
+        transform: translateY(10px);
+    }
+    
+    50%
+    {
+        transform: translate(-10px);
+    }
 }
 
-.glowing-cards .box .content
-{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  left: 0;
-  padding: 20px 40px;
-  height: 20rem;
-  background: rgba(59, 56, 116, 0.422);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  z-index: 1;
-  transform: 0.5s;
-  color: #fff;
+.glowing-cards .box .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 0;
+    padding: 20px 40px;
+    height: 20rem;
+    background: rgba(59, 56, 116, 0.422);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+    transition: transform 0.5s;
+    color: #fff;
 }
 
-.glowing-cards .box:hover .content
-{
-  left: -25px;
-  padding: 60px 40px;
+.glowing-cards .box:hover .content {
+    left: -25px;
+    padding: 60px 40px;
 }
 
-.glowing-cards .box .content h2
-{
-  font-size: 2em;
-  color: #fff;
-  margin-bottom: 10px;
+.glowing-cards .box .content h2 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
-.glowing-cards .box .content p
-{
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  line-height: 1.4em;
+.glowing-cards .box .content p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
 }
 
-.glowing-cards .box .content a
-{
-  display: inline-block;
-  font-size: 1.1em;
-  color: #111;
-  background: #fff;
-  padding: 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 700;
-  margin-top: 5px;
-  width: 7rem;
+.glowing-cards .box .content a {
+    display: inline-block;
+    font-size: 1.1em;
+    color: #111;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 5px;
+    width: 7rem;
 }
 
-.glowing-cards .box .content a:hover
-{
-  background: #ffcf4d;
-  border: 1px solid rgba(255, 0, 88, 0.4);
-  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+.glowing-cards .box .content a:hover {
+    background: #ffcf4d;
+    border: 1px solid rgba(255, 0, 88, 0.4);
+    box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
 
-/* MODAL POPUP */
+/* Modal Popup Styling */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-background-color);
 }
 
-/* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--modal-content-background-color);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
 }
 
-/* The Close Button */
+.info-message {
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
 .close {
-    color: #aaaaaa;
+    color: #1b1b1b;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
+.close:hover, .close:focus {
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
+}
+
+@keyframes animate {
+    0%, 100% { transform: translateY(10px); }
+    50% { transform: translateY(-10px); }
+}
+
+.modal-content {
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #fefefeb3; /* Background color for modal content */
+    backdrop-filter: blur(10px);
+    font-weight: 200; /* Font weight for modal content */
+}
+
+.modal-content h1 {
+    color: rgb(163, 0, 0);
+    text-decoration: rgb(0, 0, 0) underline;
+}
+
+.modal-content h2 {
+    color: blue;
+    text-decoration: rgb(0, 0, 0) wavy underline;
+}
+
+.modal-content img {
+    max-width: 100px;
+}
+
+.navigation a:hover {
+    background-color: #ddd; /* Different background color for navigation links on hover */
+    color: black; /* Different text color */
+}
+
+.aligned-left, .aligned-center, .aligned-right {
+    font-style: oblique; /* Different font style */
+    font-weight: 400; /* Different font weight */
+}
+
+.aligned-center {
+    font-size: 24px; /* Different font size */
+}
+
+.different-typefaces {
+    font-family: 'Roboto', sans-serif;
+    list-style-type: upper-roman; /* This ensures the list is in Roman numerals */
+}
+
+.different-typefaces li:nth-child(1) {
+    font-weight: 200; /* Typeface 200 for the first item */
+}
+
+.different-typefaces li:nth-child(2) {
+    font-weight: 400; /* Typeface 400 for the second item */
+}
+
+.different-typefaces li:nth-child(3) {
+    font-weight: 600; /* Typeface 600 for the third item */
+}
+
+.different-typefaces li:nth-child(4) {
+    font-weight: 800; /* Typeface 800 for the fourth item */
+}
+
+/* ID selector for modal */
+#myModal {
+    display: none; /* Initially hidden modal */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.navigation {
+    background-color: #333; /* Background color for navigation */
+    overflow: hidden;
+}
+
+.navigation a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.aligned-right {
+    text-align: right;
+}
+
+.aligned-center {
+    text-align: center;
+}
+
+.aligned-left {
+    text-align: left;
 }
