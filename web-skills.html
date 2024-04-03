@@ -7,149 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Web Skills</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="../styles/homepage/layout.css"> -->
-        <link rel="stylesheet" href="./styles/components/nav-bar.css">
-        <!-- Document description: Healthcare Drone Company Portfolio - Main Page. Created by Samuel Moran, 21/03/2024. -->
+        <link rel="stylesheet" href="./css/navbar.css">
+        <link rel="stylesheet" href="./css/web-skills.css">
+        <!-- Document description: Web Skill page created by Samuel Moran, 21/03/2024. -->
         <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
+            .modal-content {
+                padding: 3rem;
             }
-        
-            body {
-                font-family: 'Inter';
-                display: flex;
-                flex-direction: column;
-                justify-content: start;
-                justify-items: center;
-                position: relative;
-                min-height: 100vh;
-                background-color: #000000;
-                background-image: linear-gradient(60deg, #010d22 30%, #5d6067 50%, #010d22 70%);
-                overflow-x: hidden;
-                padding: 10px;
-            }
-        
-            body::before {
-                content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                z-index: -1;
-                background-image: 
-                    linear-gradient(to bottom left, transparent, #010d22),
-                    linear-gradient(to right, #010d22 1px, transparent 1px),
-                    linear-gradient(to bottom, #010d22 1px, transparent 1px);
-                background-size: 100% 100%, 5px 15px, 14px 24px;
-                background-repeat: no-repeat, repeat, repeat;
-                pointer-events: none;
-                padding: 10px;
-            }
-        
-            .page-wrapper {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                --bento-border: 1px solid #5d60672c;
-                --bento-background-color: #010d222f;
-                --bento-border-radius: 20px;
-            }
-        
-            .intro-text {
-                display: flex;
-                flex-direction: column;
-                max-width: 900px;
-                margin: 3rem;
-            }
-        
-            .intro-text h1 {
-                font-size: 3rem;
-                text-align: center;
-                color: white;
-            }
-        
-            .skill-container {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: 0.4fr repeat(2, 1fr);
-                gap: 0.5rem;
-                width: 100%;
-                max-width: 1000px;
-                margin: 2rem 0;
-            }
-        
-            .skill-title {
-                grid-column: 1 / -1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-        
-            .skill-title h2 {
-                font-size: 2rem;
-                color: white;
-            }
-        
-            .skill {
-                display: grid;
-                grid-template-rows: 1fr 2fr;
-                border: var(--bento-border);
-                border-radius: var(--bento-border-radius);
-                background-color: var(--bento-background-color);
-                transition: background-color 1s ease;
-                position: relative;
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-            }
-        
-            .skill h3 {
-                font-size: 1.5rem;
-                color: white;
-                text-align: center;
-                margin-top: 1rem;
-            }
-        
-            .skill p {
-                font-size: 1rem;
-                color: white;
-                text-align: center;
-                margin: 1rem;
-            }
-
-            @media only screen and (max-width: 768px) {
-                .skill-container {
-                    grid-template-columns: 1fr;
-                }
-            }
-        
-            @media only screen and (max-width: 480px) {
-                .intro-text,
-                .skill-container {
-                    width: 95%;
-                    margin: 1rem 0;
-                }
-        
-                .skill-title h2 {
-                    font-size: 1.5rem;
-                }
-        
-                .skill h3 {
-                    font-size: 1.2rem;
-                }
-        
-                .skill p {
-                    font-size: 1rem;
-                }
-            }
-            
         </style>
     </head>
     <body>
-        
-        
         <div class="page-wrapper">
             <nav id="navbar">
                 <div class="hamburger">
@@ -167,7 +34,7 @@
                 <div class="nav-phone">0412 988 339</div>
             </nav>
             <div class="intro-text">
-                <h1 class="green-gradient-text">Web Skills</h1>
+                <h1 class="green-gradient-text" id="myBtn">Web Skills</h1>
             </div>
 
             <div class="skill-container">
@@ -257,7 +124,58 @@
                     <p>Comfortable working in Linux environments and familiar with command-line interfaces.</p>
                 </div>
             </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content" style="color: rgb(0, 0, 0); font-style: italic;">
+                    <span class="close">&times;</span>
+                    <p class="info-message">This modal pop-up is designed to include all HTML and CSS requirements of ITC293 A2.</p>
+                    <!-- Headings -->
+                    <h1>Heading 1 text colour red</h1>
+                    <h2>Heading 2 text colour blue</h2>
+                    <br>
+
+                    <!-- Paragraphs -->
+                    <p class="aligned-left">This paragraph is aligned to the left and in text style oblique.</p>
+                    <p class="aligned-center">This paragraph is centered and in italic.</p>
+                    <p class="aligned-right">This paragraph is aligned to the right and in text style oblique.</p>
+
+                    <!-- Lists -->
+                    <p>Ordered list to Roman numerals:</p>
+                    <ol type="I" class="different-typefaces">
+                        <li>Typeface 200</li>
+                        <li>Typeface 400</li>
+                        <li>Typeface 600</li>
+                        <li>Typeface 800</li>
+                    </ol>
+                    <br>
+                    <p>Unordered list to squares:</p>
+                    <ul style="list-style-type: square;">
+                        <li>First bullet</li>
+                        <li>Second bullet</li>
+                        <li>Third bullet</li>
+                    </ul>
+                    <br>
+                    <!-- Images -->
+                    <p>Sample image below of the GitHub logo:</p>
+                    <img src="./images/GitHubLogo.png" alt="Sample Image">
+                    <br>
+                    <!-- Internal Link -->
+                    <a href="#myModal">Open Modal</a>
+
+                    <!-- External Link -->
+                    <a href="https://www.example.com" target="_blank">Visit Example</a>
+
+                    <!-- Email and Phone Links -->
+                    <a href="mailto:samuel@example.com">Send Email</a>
+                    <a href="tel:+1234567890">Call Us</a>
+
+                    <!-- Character Reference -->
+                    <p>The copyright symbol: &copy;</p>
+                </div>
+            </div>
         </div>
+        <script src="./scripts/modal.js"></script>
         <script src="./scripts/hamburger.js"></script>
     </body>
 </html>
