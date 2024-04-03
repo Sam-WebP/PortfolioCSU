@@ -1,82 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles/homepage/layout.css">
-        <link rel="stylesheet" href="./styles/homepage/hero-section.css">
-        <link rel="stylesheet" href="./styles/components/nav-bar.css">
-        <link rel="stylesheet" href="./styles/components/cards.css">
-        <!-- Document description: Healthcare Drone Company Portfolio - Main Page. Created by Samuel Moran, 21/03/2024. -->
-    </head>
-    <body>
-        <nav id="navbar">
-            <div class="hamburger">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </div>
-            <div class="nav-logo">Logo</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="web-skills.html">Web Skills</a></li>
-                <li><a href="resume.html">Resume</a></li>
-            </ul>
-            <div class="nav-phone">0412 988 339</div>
-        </nav>
-        <div class="page-wrapper">
-            <section id="hero-section">
-                <div class="intro-text">
-                    <h1>
-                        Hey&#128075, my name is <span class="orange-gradient-text">Samuel Moran
-                            <span class="headshot-container">
-                                <img src="./images/homepage/headshot-white.png" alt="Samuel Moran" class="headshot">
-                            </span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+        <div class="nav-logo">Logo</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web-skills.html">Web Skills</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
+        <div class="nav-phone">0412 988 339</div>
+    </nav>
+        <section id="hero-section">
+            <div class="intro-text">
+                <h1>
+                    Hey&#128075, my name is <span class="orange-gradient-text">Samuel Moran
+                        <span class="headshot-container" id="myBtn">
+                            <img src="./images/homepage/headshot-white.png" alt="Samuel Moran" class="headshot">
                         </span>
-                        and I'm a <span class="green-gradient-text">full-stack developer</span>&#128187
-                    </h1>
-                    <blockquote class="subheading">
-                        "The best way to predict the future is to invent it."
-                        <footer>— <cite>Alan Kay</cite></footer>
-                    </blockquote>
-                </div>
-            </section>
-            
-            <section class="learn-more">
-                <div class="container">
-                    <div class="box">
-                      <span></span>
-                      <div class="content">
-                        <h2>About</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="about.html">Read More</a>
-                      </div>
-                    </div>
-                    <div class="box">
-                      <span></span>
-                      <div class="content">
-                        <h2>Web Skills</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="web-skills.html">Read More</a>
-                      </div>
-                    </div>
-                    <div class="box">
-                      <span></span>
-                      <div class="content">
-                        <h2>Resume</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="resume.html">Read More</a>
-                      </div>
-                    </div>
-                  </div>
+                    </span>
+                    and I'm a <span class="green-gradient-text">full-stack developer</span>&#128187
+                </h1>
                 
-            </section>
-    
+                <blockquote class="subheading">
+                    "The best way to predict the future is to invent it."
+                    <footer>— <cite>Alan Kay</cite></footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>This is a modal pop-up. Add any content you want here.</p>
             </div>
         </div>
-        <script src="./scripts/hamburger.js"></script>
-    </body>
+
+        <!-- Glowing Cards -->
+        <section class="glowing-cards">
+            <div class="box">
+                <span></span>
+                <div class="content">
+                    <h2>About</h2>
+                    <p>Computer science undergrad at CSU, tech enthusiast, passionate about innovation, contributing to open source projects, and applying theory to real-world challenges.</p>
+                    <a href="about.html">Read More</a>
+                </div>
+            </div>
+            <div class="box">
+                <span></span>
+                <div class="content">
+                    <h2>Web Skills</h2>
+                    <p>Proficient in front-end, back-end technologies, databases, with expertise in HTML, CSS, JavaScript, React, Python, Django, Node.js, SQL, Docker, and AWS.</p>
+                    <a href="web-skills.html">Read More</a>
+                </div>
+            </div>
+            <div class="box">
+                <span></span>
+                <div class="content">
+                    <h2>Resume</h2>
+                    <p>Built scalable web applications, bridged business and technical gaps at tech start-ups and managed IT operations for the largest OPE e-commerce store in Australia.</p>
+                    <a href="resume.html">Read More</a>
+                </div>
+            </div>
+        </section>
+
+    <script src="./scripts/modal.js"></script>
+    <script src="./scripts/hamburger.js"></script> 
+</body>
 </html>
