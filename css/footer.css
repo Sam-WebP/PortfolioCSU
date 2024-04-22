@@ -1,0 +1,91 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    width: 100vw;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.075);
+    backdrop-filter: blur(10px);
+    color: white;
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(254, 254, 254, 0.181);
+    max-width: 1100px;
+}
+
+#footer hr {
+    color: rgba(255, 255, 255, 0.25);
+    width: 80%;
+}
+
+.footer-content {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.footer-logo img {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+}
+
+.footer-pages {
+    display: flex;
+    justify-content: start;
+}
+
+.footer-pages h3 {
+    font-weight: 800;
+}
+
+.footer-pages ul {
+    list-style-type: none;
+}
+
+.copyright {
+    padding: 2rem;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 650px) {
+    #footer {
+        padding: 10px; /* Reduce padding */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Stack content vertically on small screens */
+        align-items: center; /* Center-align the content */
+    }
+
+    .footer-logo img {
+        width: 80px; /* Slightly reduce the size of the logo on small screens */
+    }
+
+    #footer hr {
+        width: 90%; /* Increase width percentage to maintain styling */
+    }
+
+    .footer-pages {
+        justify-content: center; /* Center the pages container on small screens */
+    }
+
+    .footer-pages ul {
+        padding: 10px; /* Add padding */
+    }
+
+    .footer-contact {
+        max-width: 70px;
+    }
+}
