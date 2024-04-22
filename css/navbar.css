@@ -24,8 +24,13 @@
     box-shadow: 0 4px 20px rgba(254, 254, 254, 0.181);
 }
 
-.nav-logo, .nav-phone {
+.nav-phone {
     color: white;
+    
+}
+
+.nav-logo {
+    max-height: 30px;
 }
 
 .hamburger {
