@@ -54,6 +54,7 @@
 
 body {
     font-family: var(--font-family);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -497,4 +498,53 @@ body::before {
 
 .aligned-left {
     text-align: left;
+}
+
+/* Tables container */
+.tables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+    align-items: flex-start;     
+    gap: 20px;            
+    padding: 20px;             
+    box-sizing: border-box;    
+}
+
+/* Styling for each table */
+.tables table {
+    border-collapse: collapse;   
+    width: 48%;                 
+    max-width: 600px;     
+    margin: 0 auto;      
+    background-color: rgba(0, 0, 0, 0.436);  
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.tables th, .tables td {
+    border: 1px solid #dddddd;   
+    text-align: left;       
+    padding: 8px;            
+    color: #ffffff;              
+}
+
+.tables th {
+    background-color: rgba(0, 0, 0, 0.075);   
+    color: #ffffff;               
+}
+
+.tables caption {
+    font-size: 1.25em;       
+    margin: 10px 0;           
+    font-weight: bold;          
+}
+
+@media (max-width: 768px) {
+    .tables {
+        flex-direction: column;  /* Stacks the tables vertically on small screens */
+    }
+
+    .tables table {
+        width: 100%;             /* Allows table to expand to full container width */
+    }
 }
