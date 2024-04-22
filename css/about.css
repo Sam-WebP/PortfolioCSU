@@ -35,7 +35,8 @@ body {
     font-family: var(--font-family-base);
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
     min-height: 100vh;
     background-color: var(--color-background-dark);
