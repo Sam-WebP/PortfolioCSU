@@ -304,3 +304,46 @@ body::before {
 .aligned-left {
     text-align: left;
 }
+
+@media print {
+    /* Hide non-essential elements */
+    nav#navbar, .modal, footer#footer, .hamburger, #myModal, .modal-content, .navigation, .grid-overlay {
+        display: none;
+    }
+
+    /* Ensure the body has a plain background and text is black for better visibility */
+    body {
+        background: none !important;
+        color: black !important;
+        font-family: 'Times New Roman', serif;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    /* Simplify layout - full width for content areas */
+    .page-wrapper, .skill-container, .skill {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none !important;
+        box-shadow: none;
+    }
+
+    /* Adjust text sizes and colors for print */
+    h1, h2, h3, p {
+        color: black !important;
+        font-size: 12pt !important; /* Adjust size as necessary */
+    }
+
+    /* Ensure images are not oversized */
+    img {
+        max-width: 100% !important;
+    }
+
+    /* Adjust list styles */
+    .different-typefaces {
+        list-style-type: decimal; /* Change Roman numerals to decimal for better readability */
+    }
+}

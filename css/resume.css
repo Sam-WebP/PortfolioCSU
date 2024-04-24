@@ -541,10 +541,57 @@ body::before {
 
 @media (max-width: 768px) {
     .tables {
-        flex-direction: column;  /* Stacks the tables vertically on small screens */
+        flex-direction: column; /* Stacks the tables vertically on small screens */
     }
 
     .tables table {
-        width: 100%;             /* Allows table to expand to full container width */
+        width: 100%; /* Allows table to expand to full container width */
+    }
+}
+
+@media print {
+    /* Hide non-essential elements */
+    nav#navbar, .modal, footer#footer, .hamburger, #myModal, .modal-content, .navigation, .grid-overlay {
+        display: none;
+    }
+
+    /* Override body styles to ensure print compatibility */
+    body {
+        background: none !important;
+        color: black !important;
+        font-family: 'Times New Roman', serif;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    /* Simplify layouts for printing */
+    .content-wrapper, .skill-container, .skill {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none !important;
+    }
+
+    /* Ensure text and headings are legible */
+    h1, h2, h3, p {
+        color: black !important;
+        font-size: 12pt !important;
+    }
+
+    /* Adjust image sizes for print */
+    img {
+        max-width: 100% !important;
+    }
+
+    /* Handle tables to ensure they fit on the page */
+    .tables table {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .tables th, .tables td {
+        color: black !important; /* Ensuring text is clearly readable */
     }
 }

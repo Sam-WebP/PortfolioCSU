@@ -480,3 +480,64 @@ body::before {
 .aligned-left {
     text-align: left;
 }
+
+@media print {
+    /* Hide all non-essential elements */
+    nav#navbar, .modal, footer#footer, .hamburger, #myModal, .modal-content, .navigation, .grid-overlay {
+        display: none;
+    }
+
+    /* Simplify the page background and text for printing */
+    body {
+        background: none;
+        color: black; /* Ensure text is black for better print visibility */
+        font-family: 'Times New Roman', serif; /* More print-appropriate font */
+        font-size: 12pt; /* Standard print size for better readability */
+    }
+
+    /* Set all images to a maximum width to fit within the print layout */
+    img {
+        max-width: 100%;
+    }
+
+    .orange-gradient-text, .green-gradient-text {
+        color: black;
+    }
+
+    /* Remove custom gradients and backgrounds */
+    .content-wrapper, .page-wrapper {
+        background: none;
+    }
+
+    /* Ensure the content is not cut off */
+    .content-wrapper, .page-wrapper, .skill-container, #hero-section, #timeline ul {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ensure tables are fully visible and legible */
+    .tables table {
+        width: auto; /* Auto-adjust table width */
+        max-width: none; /* Remove maximum width restriction */
+    }
+
+    /* Adjust text and heading sizes for readability */
+    h1, h2, h3, p, .descr .item-text {
+        font-size: larger; /* Larger font size for print */
+    }
+
+    /* Make sure all text is visible and not clipped */
+    .descr, .title {
+        padding: 10px;
+        border: 1px solid black; /* Add a border for definition */
+    }
+
+    /* Adjust timelines for better legibility */
+    #timeline ul li .job-title, #timeline ul li .title, #timeline ul li .descr {
+        border: none; /* Remove complex borders */
+        background-color: white; /* Set a simple background */
+        color: black; /* Ensure text is black */
+    }
+}

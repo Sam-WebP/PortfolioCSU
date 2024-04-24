@@ -304,7 +304,7 @@ body::before {
 
 @media print {
     /* Hide all irrelevant elements for printing */
-    #navbar, .modal, #footer, .hamburger, #myModal, .modal-content {
+    nav#navbar, .modal, footer#footer, .hamburger, #myModal, .modal-content, .navigation, .grid-overlay {
         display: none;
     }
 
