@@ -301,3 +301,40 @@ body::before {
 .aligned-left {
     text-align: left;
 }
+
+@media print {
+    /* Hide all irrelevant elements for printing */
+    #navbar, .modal, #footer, .hamburger, #myModal, .modal-content {
+        display: none;
+    }
+
+    /* Simplify background and text */
+    body {
+        background: none;
+        color: black; /* Black text for better print visibility */
+        font-size: 12pt; /* Increase font size for print */
+    }
+
+    /* Left-aligned text and a more readable font size */
+    .intro-text, .skill-container, .skill h3, .skill p {
+        text-align: left;
+        color: black; /* Black text for better readability */
+    }
+
+    /* Remove background colours and borders from skills sections */
+    .skill {
+        background: none;
+        border: none;
+    }
+
+    /* Images to have max width */
+    img {
+        max-width: 100%;
+    }
+
+    /* Page wrapper with no padding and 100% width */
+    .page-wrapper {
+        padding: 0;
+        width: 100%;
+    }
+}
