@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Signup</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="scripts/signup.js" defer></script>
+</head>
+<body onload="displayWelcomeMessage()">
+    <header>
+        <h1 class="orange-gradient-text">Newsletter Signup</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <form id="signup-form">
+                <p class="green-gradient-text">Welcome to the Healthcare Drone Corporation - Newsletter Signup</p>
+                <label for="first-name">First Name (required):</label>
+                <input type="text" id="first-name" name="first-name" maxlength="60" required placeholder="Enter your first name">
+                <br>
+                <label for="last-name">Last Name (required):</label>
+                <input type="text" id="last-name" name="last-name" maxlength="60" required placeholder="Enter your last name">
+                <br>
+                <label for="email">Email Address (required):</label>
+                <input type="email" id="email" name="email" maxlength="60" required placeholder="Enter your email">
+                <br>
+                <div class="radio-group">
+                    <p>Age Range (required):</p>
+                    <label for="age-15-25">
+                        <input type="radio" id="age-15-25" name="age" value="15-25" required>
+                        15-25
+                    </label>
+                    <label for="age-26-35">
+                        <input type="radio" id="age-26-35" name="age" value="26-35">
+                        26-35
+                    </label>
+                    <label for="age-36-45">
+                        <input type="radio" id="age-36-45" name="age" value="36-45">
+                        36-45
+                    </label>
+                    <label for="age-46-55">
+                        <input type="radio" id="age-46-55" name="age" value="46-55">
+                        46-55
+                    </label>
+                    <label for="age-55">
+                        <input type="radio" id="age-55" name="age" value="55+">
+                        55+
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <p>Areas of Interest (required):</p>
+                    <label for="interest1">
+                        <input type="checkbox" id="interest1" name="interest" value="Drone Design">
+                        Drone Design
+                    </label>
+                    <label for="interest2">
+                        <input type="checkbox" id="interest2" name="interest" value="Drone Navigation Algorithms">
+                        Drone Navigation Algorithms
+                    </label>
+                    <label for="interest3">
+                        <input type="checkbox" id="interest3" name="interest" value="Healthcare Tech Updates">
+                        Healthcare Tech Updates
+                    </label>
+                    <label for="interest4">
+                        <input type="checkbox" id="interest4" name="interest" value="Success Stories">
+                        Success Stories
+                    </label>
+                    <label for="interest5">
+                        <input type="checkbox" id="interest5" name="interest" value="Miscellaneous">
+                        Miscellaneous
+                    </label>
+                </div>
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="3" placeholder="Enter your comments"></textarea>
+                <br>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
