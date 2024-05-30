@@ -41,17 +41,53 @@
     width: 100px;
 }
 
-.footer-pages {
+.footer-pages,
+.footer-skills,
+.footer-contact,
+.footer-newsletter {
     display: flex;
-    justify-content: start;
+    flex-direction: column;
 }
 
-.footer-pages h3 {
+.footer-pages h3,
+.footer-skills h3,
+.footer-contact h3,
+.footer-newsletter h3 {
     font-weight: 800;
 }
 
-.footer-pages ul {
+.footer-pages ul,
+.footer-skills ul {
     list-style-type: none;
+}
+
+.footer-contact a,
+.footer-newsletter a,
+.footer-pages a,
+.footer-skills a {
+    color: white; /* Set a uniform link color */
+    text-decoration: none;
+}
+
+.footer-contact a:hover,
+.footer-newsletter a:hover,
+.footer-pages a:hover,
+.footer-skills a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover for better UX */
+}
+
+.footer-contact a:visited,
+.footer-newsletter a:visited,
+.footer-pages a:visited,
+.footer-skills a:visited {
+    color: white; /* Ensure visited links remain the same color */
+}
+
+.footer-contact a:active,
+.footer-newsletter a:active,
+.footer-pages a:active,
+.footer-skills a:active {
+    color: white; /* Ensure active links remain the same color */
 }
 
 .copyright {
@@ -77,15 +113,12 @@
         width: 90%; /* Increase width percentage to maintain styling */
     }
 
-    .footer-pages {
-        justify-content: center; /* Center the pages container on small screens */
-    }
-
-    .footer-pages ul {
-        padding: 10px; /* Add padding */
-    }
-
-    .footer-contact {
-        max-width: 70px;
+    .footer-pages,
+    .footer-skills,
+    .footer-contact,
+    .footer-newsletter {
+        align-items: center; /* Center the items */
+        text-align: center; /* Center the text */
+        margin-bottom: 20px; /* Add margin between sections */
     }
 }
