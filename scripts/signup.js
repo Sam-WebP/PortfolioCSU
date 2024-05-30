@@ -4,7 +4,7 @@ function displayWelcomeMessage() {
 
 document.getElementById('signup-form').addEventListener('submit', async function(event) {
     event.preventDefault();
-
+    
     const firstName = document.getElementById('first-name').value.trim();
     const lastName = document.getElementById('last-name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -12,8 +12,26 @@ document.getElementById('signup-form').addEventListener('submit', async function
     const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(cb => cb.value);
     const comments = document.getElementById('comments').value.trim();
 
-    if (!firstName || !lastName) {
-        alert("Both First Name and Last Name are required.");
+    if (!firstName) {
+        alert("First Name is required.");
+        document.getElementById('first-name').focus();
+        return;
+    }
+
+    if (!lastName) {
+        alert("Last Name is required.");
+        document.getElementById('last-name').focus();
+        return;
+    }
+
+    if (!email) {
+        alert("Email Address is required.");
+        document.getElementById('email').focus();
+        return;
+    }
+
+    if (!age) {
+        alert("Age Range is required.");
         return;
     }
 
@@ -27,9 +45,12 @@ document.getElementById('signup-form').addEventListener('submit', async function
         lastName,
         emailAddress: email,
         ageRange: age,
-        services: interests,
-        feedback: comments || null,
+        services: interests
     };
+
+    if (comments) {
+        data.feedback = comments;
+    }
 
     console.log("Data being sent:", JSON.stringify(data));  // Log the data being sent for debugging
 
@@ -45,13 +66,20 @@ document.getElementById('signup-form').addEventListener('submit', async function
         const responseBody = await response.json();
 
         if (response.ok) {
-            alert(`Subscribed email address '${email}' to the newsletter.`);
+            showNotification(`Subscribed email address '${email}' to the newsletter.`, 'success');
         } else {
             console.error("Server response:", responseBody);  // Log the server response for debugging
-            alert(`Failed to subscribe: ${responseBody.message || response.statusText}`);
+            showNotification(`Failed to subscribe: ${responseBody.message || response.statusText}`, 'error');
         }
     } catch (error) {
         console.error("Fetch error:", error);  // Log fetch errors for debugging
-        alert(`Failed to subscribe: ${error.message}`);
+        showNotification(`Failed to subscribe: ${error.message}`, 'error');
     }
 });
+
+function showNotification(message, type) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+    notification.style.color = type === 'success' ? 'green' : 'red';
+}
