@@ -1,10 +1,13 @@
+// Display a welcome message when the page loads
 function displayWelcomeMessage() {
     alert("Welcome to the Healthcare Drone Corporation - Newsletter Signup");
 }
 
+// Add event listener to the form for the submit event
 document.getElementById('signup-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
+    event.preventDefault();  // Prevent default form submission
     
+    // Get form values
     const firstName = document.getElementById('first-name').value.trim();
     const lastName = document.getElementById('last-name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -12,6 +15,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
     const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(cb => cb.value);
     const comments = document.getElementById('comments').value.trim();
 
+    // Validate form fields
     if (!firstName) {
         alert("First Name is required.");
         document.getElementById('first-name').focus();
@@ -40,6 +44,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
         return;
     }
 
+    // Create data object to be sent
     const data = {
         firstName,
         lastName,
@@ -49,12 +54,13 @@ document.getElementById('signup-form').addEventListener('submit', async function
     };
 
     if (comments) {
-        data.feedback = comments;
+        data.feedback = comments;  // Include comments if provided
     }
 
-    console.log("Data being sent:", JSON.stringify(data));  // Log the data being sent for debugging
+    console.log("Data being sent:", JSON.stringify(data));  // Log data for debugging
 
     try {
+        // Send data to the server using Fetch API
         const response = await fetch('https://3ex2gpke3sk4346d4mxi5rrc6e0tcurx.lambda-url.ap-southeast-2.on.aws/', {
             method: 'POST',
             headers: {
@@ -63,23 +69,24 @@ document.getElementById('signup-form').addEventListener('submit', async function
             body: JSON.stringify(data),
         });
 
-        const responseBody = await response.json();
+        const responseBody = await response.json();  // Parse the response
 
         if (response.ok) {
             showNotification(`Subscribed email address '${email}' to the newsletter.`, 'success');
         } else {
-            console.error("Server response:", responseBody);  // Log the server response for debugging
+            console.error("Server response:", responseBody);  // Log server response for debugging
             showNotification(`Failed to subscribe: ${responseBody.message || response.statusText}`, 'error');
         }
     } catch (error) {
-        console.error("Fetch error:", error);  // Log fetch errors for debugging
+        console.error("Fetch error:", error);  // Log fetch error for debugging
         showNotification(`Failed to subscribe: ${error.message}`, 'error');
     }
 });
 
+// Display notification messages
 function showNotification(message, type) {
     const notification = document.getElementById('notification');
-    notification.textContent = message;
-    notification.style.display = 'block';
-    notification.style.color = type === 'success' ? 'green' : 'red';
+    notification.textContent = message;  // Set message text
+    notification.style.display = 'block';  // Show notification
+    notification.style.color = type === 'success' ? 'green' : 'red';  // Set colour based on type
 }
