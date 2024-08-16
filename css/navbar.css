@@ -7,7 +7,7 @@
 
 /* Navbar styles */
 #navbar {
-    background-color: rgba(0, 0, 0, 0.075);
+    background-color: rgba(57, 56, 78, 0.422);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.25);
