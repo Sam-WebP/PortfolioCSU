@@ -129,7 +129,7 @@ body::before {
 .skill p {
     font-size: var(--font-size-xsmall);
     color: var(--color-text-white);
-    text-align: center;
+    text-align: left;
     margin: var(--space-small);
 }
 
