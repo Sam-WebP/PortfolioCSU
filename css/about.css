@@ -1,0 +1,349 @@
+:root {
+    /* Colour scheme */
+    --color-background-dark: #2b0202;
+    --color-gradient-start: #540d0d;
+    --color-gradient-middle: #ff8c00;
+    --color-gradient-end: #540d0d;
+    --color-overlay-dark: #3a0c0c;
+    --color-text-white: #ffffff;
+    --color-border-light: #ff8c002c;
+    --color-background-light: #540d0d2f;
+
+    /* Font settings */
+    --font-family-base: 'Inter', sans-serif;
+    --font-size-large: 3rem;
+    --font-size-medium: 2rem;
+    --font-size-small: 1.5rem;
+    --font-size-xsmall: 1rem;
+
+    /* Spacing */
+    --space-large: 3rem;
+    --space-medium: 2rem;
+    --space-small: 1rem;
+
+    /* Misc */
+    --border-radius-rounded: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-background-dark);
+    background-image: linear-gradient(60deg, var(--color-gradient-start) 30%, var(--color-gradient-middle) 50%, var(--color-gradient-end) 70%);
+    overflow-x: hidden;
+    padding: var(--space-small);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: 
+        linear-gradient(to bottom left, transparent, var(--color-overlay-dark)),
+        linear-gradient(to right, var(--color-overlay-dark) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-overlay-dark) 1px, transparent 1px);
+    background-size: 100% 100%, 5px 15px, 14px 24px;
+    background-repeat: no-repeat, repeat, repeat;
+    pointer-events: none;
+    padding: var(--space-small);
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --bento-border: 1px solid var(--color-border-light);
+    --bento-background-color: var(--color-background-light);
+    --bento-border-radius: var(--border-radius-rounded);
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: var(--space-large);
+}
+
+.intro-text h1 {
+    font-size: var(--font-size-large);
+    text-align: center;
+    color: var(--color-text-white);
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: var(--space-medium) 0;
+}
+
+.skill-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-title h2 {
+    font-size: var(--font-size-medium);
+    color: var(--color-text-white);
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    border: var(--bento-border);
+    border-radius: var(--bento-border-radius);
+    background-color: var(--bento-background-color);
+    transition: background-color 1s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 700px;
+    margin-top: var(--space-large);
+}
+
+.skill h3 {
+    font-size: var(--font-size-small);
+    color: var(--color-text-white);
+    text-align: center;
+    margin-top: var(--space-small);
+}
+
+.skill p {
+    font-size: var(--font-size-xsmall);
+    color: var(--color-text-white);
+    text-align: left;
+    margin: var(--space-small);
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .skill-container {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .intro-text,
+    .skill-container {
+        width: 95%;
+        margin: var(--space-small) 0;
+    }
+
+    .skill-title h2,
+    .skill h3 {
+        font-size: var(--font-size-small);
+    }
+
+    .skill p {
+        font-size: var(--font-size-xsmall);
+    }
+}
+
+/* Modal Popup Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-background-color);
+}
+
+.modal-content {
+    background-color: var(--modal-content-background-color);
+    margin: auto;
+    padding: 3rem;
+    border: 1px solid #888;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    font-style: italic;
+}
+
+.modal-content ul {
+    list-style-type: square;
+}
+
+.info-message {
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.close {
+    color: #1b1b1b;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes animate {
+    0%, 100% { transform: translateY(10px); }
+    50% { transform: translateY(-10px); }
+}
+
+.modal-content {
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #fefefeb3; /* Background color for modal content */
+    backdrop-filter: blur(10px);
+    font-weight: 200; /* Font weight for modal content */
+}
+
+.modal-content h1 {
+    color: rgb(163, 0, 0);
+    text-decoration: rgb(0, 0, 0) underline;
+}
+
+.modal-content h2 {
+    color: blue;
+    text-decoration: rgb(0, 0, 0) wavy underline;
+}
+
+.modal-content img {
+    max-width: 100px;
+}
+
+.navigation a:hover {
+    background-color: #ddd; /* Different background color for navigation links on hover */
+    color: black; /* Different text color */
+}
+
+.aligned-left, .aligned-center, .aligned-right {
+    font-style: oblique; /* Different font style */
+    font-weight: 400; /* Different font weight */
+}
+
+.aligned-center {
+    font-size: 24px; /* Different font size */
+}
+
+.different-typefaces {
+    font-family: 'Roboto', sans-serif;
+    list-style-type: upper-roman; /* This ensures the list is in Roman numerals */
+}
+
+.different-typefaces li:nth-child(1) {
+    font-weight: 200; /* Typeface 200 for the first item */
+}
+
+.different-typefaces li:nth-child(2) {
+    font-weight: 400; /* Typeface 400 for the second item */
+}
+
+.different-typefaces li:nth-child(3) {
+    font-weight: 600; /* Typeface 600 for the third item */
+}
+
+.different-typefaces li:nth-child(4) {
+    font-weight: 800; /* Typeface 800 for the fourth item */
+}
+
+/* ID selector for modal */
+#myModal {
+    display: none; /* Initially hidden modal */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.navigation {
+    background-color: #333; /* Background color for navigation */
+    overflow: hidden;
+}
+
+.navigation a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.aligned-right {
+    text-align: right;
+}
+
+.aligned-center {
+    text-align: center;
+}
+
+.aligned-left {
+    text-align: left;
+}
+
+@media print {
+    /* Hide non-essential elements */
+    nav#navbar, .modal, footer#footer, .hamburger, #myModal, .modal-content, .navigation, .grid-overlay {
+        display: none;
+    }
+
+    /* Ensure the body has a plain background and text is black for better visibility */
+    body {
+        background: none !important;
+        color: black !important;
+        font-family: 'Times New Roman', serif;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    /* Simplify layout - full width for content areas */
+    .page-wrapper, .skill-container, .skill {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none !important;
+        box-shadow: none;
+    }
+
+    /* Adjust text sizes and colors for print */
+    h1, h2, h3, p {
+        color: black !important;
+        font-size: 12pt !important; /* Adjust size as necessary */
+    }
+
+    /* Ensure images are not oversized */
+    img {
+        max-width: 100% !important;
+    }
+
+    /* Adjust list styles */
+    .different-typefaces {
+        list-style-type: decimal; /* Change Roman numerals to decimal for better readability */
+    }
+}
